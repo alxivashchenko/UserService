@@ -28,4 +28,21 @@ public class UserProfileController {
     ) {
         return service.updateProfile(id, request);
     }
+
+    @GetMapping("/me")
+    public UserProfileResponse getMyProfile(@RequestHeader("X-User-Id") String userIdHeader) {
+        UUID userId = UUID.fromString(userIdHeader);
+        return service.getProfile(userId);
+    }
+
+    @PutMapping("/me")
+    public UserProfileResponse updateMyProfile(
+            @RequestHeader("X-User-Id") String userIdHeader,
+            @RequestBody @Valid UpdateUserProfileRequest request
+    ) {
+        UUID userId = UUID.fromString(userIdHeader);
+        return service.updateProfile(userId, request);
+    }
+
+
 }
