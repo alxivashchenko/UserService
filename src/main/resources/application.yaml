@@ -15,16 +15,19 @@ spring:
         format_sql: true
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
 
-management:
-  tracing:
-    sampling:
-      probability: 1.0
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0
+#
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health,info,prometheus
 
-  otlp:
-    tracing:
-      endpoint: http://otel-collector:4317
-
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus
+#otel:
+#  service:
+#    name: user-service
+#  exporter:
+#    otlp:
+#      endpoint: http://otel-collector:4318
